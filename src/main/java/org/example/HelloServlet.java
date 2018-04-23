@@ -16,16 +16,22 @@ public class HelloServlet extends HttpServlet
     {
     	
     	resp.setContentType("text/html");
-		PrintWriter out = resp.getWriter();
-		out.println("Tomcat app v4\n\n");
-		out.println("Headers:<hr/>");
-		Enumeration<String> headerNames = req.getHeaderNames();
-		while (headerNames.hasMoreElements()) {
-			String headerName = headerNames.nextElement();
-			out.print("Header Name: <em>" + headerName);
-			String headerValue = req.getHeader(headerName);
-			out.print("</em>, Header Value: <em>" + headerValue);
-			out.println("</em><br/>");
-		}
+	PrintWriter out = resp.getWriter();
+	out.println("Tomcat app v1\n\n");
+	out.println("Headers:<hr/>");
+	Enumeration<String> headerNames = req.getHeaderNames();
+	while (headerNames.hasMoreElements()) {
+		String headerName = headerNames.nextElement();
+		out.print("Header Name: <em>" + headerName);
+		String headerValue = req.getHeader(headerName);
+		out.print("</em>, Header Value: <em>" + headerValue);
+		out.println("</em><br/>");
+	}
+	try {
+		InetAddress myHost = InetAddress.getLocalHost();
+		out.println("<p>Host: <em>" + myHost.getHostName() + "</em></p>");
+	} catch (UnknownHostException ex) {
+		out.println("<p>Cannot detect host</p>");
+	}
     }
 }
