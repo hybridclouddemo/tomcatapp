@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import java.util.Enumeration;
 
 public class HelloServlet extends HttpServlet
