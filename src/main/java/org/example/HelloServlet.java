@@ -24,9 +24,9 @@ public class HelloServlet extends HttpServlet
 	
 	try {
 		InetAddress myHost = InetAddress.getLocalHost();
-		out.println("Host: " + myHost.getHostName());
+		out.println("Pod " + myHost.getHostName());
 	} catch (UnknownHostException ex) {
-		out.println("Cannot detect host");
+		out.println("Cannot detect pod");
 	}
     }
 }
